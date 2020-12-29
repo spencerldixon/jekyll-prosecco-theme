@@ -1,6 +1,6 @@
-# prosecco
+# Prosecco 🍾
 
-A minimalist jekyll blog theme built with Bulma.
+A clean, minimal jekyll blog theme built with Bulma.
 
 ## Installation
 
@@ -24,9 +24,62 @@ Or install it yourself as:
 
     $ gem install prosecco
 
-## Usage
+## Layouts
 
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
+There are four layouts avaiable:
+
+- Home - (from top to bottom) shows the header, menu, allows content, then displays paginated list of latest posts
+- Archive - shows the header, menu, and a list of blog posts
+- Default - everything inherits from this, use for blank pages
+- Post - Duplicate of default, but with styles enforced for markdown and syntax highlighting, use for blog posts
+
+
+## Config
+
+Some important config bits you'll need to set up in your `_config.yml`
+
+```
+# Basic
+theme: prosecco
+title: "Spencer Dixon"
+tagline: "Contract Ruby Developer"
+profile_image: 'me2.jpg' # this looks in assets/images
+footer_text: 'Made with Prosecco, a Jekyll theme I made while drinking Prosecco.'
+
+timezone:           Europe/London
+permalink:          /:year-:month-:day/:title/
+
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
+
+# Markdown
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  input:            GFM
+
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
+
+# Navigation
+nav:
+  - name:           "Home"
+    url:            "/"
+  - name:           "Archive"
+    url:            "/archive"
+  - name:           "Github"
+    url:            "https://github.com/spencerldixon"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jemoji
+```
+
+
 
 ## Contributing
 
