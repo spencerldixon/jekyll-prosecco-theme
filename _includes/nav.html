@@ -1,0 +1,9 @@
+<nav class="is-flex is-align-items-center is-justify-content-center is-flex-wrap-wrap mb-6">
+    {% for nav in site.nav %}
+    {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+    <a class="button is-rounded m-1" href="{{ nav.url }}">{{ nav.name }}</a>
+    {% else %}
+    <a class="button is-rounded m-1" href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
+    {% endif %}
+    {% endfor %}
+  </nav>

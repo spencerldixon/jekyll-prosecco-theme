@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<div class="is-flex my-6 is-justify-content-center">
+	<h1 class="title">📝 Latest Posts</h1>
+</div>
+
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% else %}
+
+{% for post in paginator.posts %}
+  {% include post_preview.html %}
+{% endfor %}
+
+<!-- Pagination links -->
+  <div class="list-pagination is-flex my-6 is-justify-content-center">
+    <span class="list-pagination-previous">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button is-rounded is-primary">
+          👈 Previous
+        </a>
+      {% else %}
+
+      {% endif %}
+    </span>
+
+    <span class="list-pagination-next">
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button is-rounded is-primary">
+          Next 👉
+        </a>
+      {% else %}
+
+      {% endif %}
+    </span>
+
+  </div>
+{% endif %}
+</div>

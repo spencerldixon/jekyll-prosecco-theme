@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<div class="card">
+  <div class="card-content">
+  {% if site.posts.size == 0 %}
+    <h2>No posts found</h2>
+  {% else %}
+
+    {% for post in site.posts %}
+
+    <div class="is-flex is-justify-content-space-between my-5">
+      {% if post.link %}
+        <a href="{{ post.link }}">
+      {% else %}
+        <a href="{{ post.url | prepend: site.baseurl }}">
+      {% endif %} 
+
+      <p class="title">{{ post.title }}</p>
+      </a>
+      
+      <time class="subtitle">{{ post.date | date_to_string }}</time>
+    </div>
+    
+
+    {% endfor %}
+  {% endif %}
+</div>
+</div>
