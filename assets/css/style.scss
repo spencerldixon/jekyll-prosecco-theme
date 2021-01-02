@@ -5,3 +5,9 @@ $background: #F8FAFF;
 $body-background-color: #F8FAFF;
 
 @import 'bulma';
+
+.archive-row {
+  @include until($desktop) {
+    flex-direction: column !important;
+  }
+}
